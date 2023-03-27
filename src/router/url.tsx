@@ -1,1 +1,3 @@
-export default "http://localhost:4567"
+export default "https://quiz-backend-4hdl.onrender.com"
+
+// http://localhost:4567
