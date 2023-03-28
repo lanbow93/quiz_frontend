@@ -60,17 +60,23 @@ header {
 .userForm label {
   text-decoration: underline 1px grey;
   text-underline-offset: 0.2em;
+  color: grey;
+  font-weight: bold;
+  font-size: .75rem;
 }
 .userForm input {
   margin-top: 1.5rem;
   margin-bottom: 1.75rem;
-  font-size: 1.05rem;
+  font-size: 1rem;
   border: none;
 
   
   border-bottom: 1px solid grey;
 }
 
+.redHighlight{
+  background-color: lightcoral;
+}
 
 .userForm button {
   font-size: 1.05rem;
@@ -91,7 +97,7 @@ header {
 
 
 
-@media (min-width: 60rem) {
+@media (min-width: 50rem) {
   /* Header Section */
   header {
     display: flex;
