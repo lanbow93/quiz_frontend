@@ -37,8 +37,9 @@ export const loginAction = async ({request}: any) => {
     const response = await fetch(url+ "/auth/login", {
         method: "post",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(user)
     } )
 
