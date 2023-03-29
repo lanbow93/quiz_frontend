@@ -5,10 +5,12 @@ import Login from "../pages/Login";
 import { loginAction, signupAction } from "./actions";
 import UserQuizIndex from "../pages/UserQuizIndex";
 import { quizIndexLoader } from "./loaders";
+import Landing from "../pages/Landing";
 
 const router = createBrowserRouter(createRoutesFromElements(
     
     <Route path="/" element={<App/>}>
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login/>} action={loginAction} />
         <Route path="/signup" element={<Signup/>} action={signupAction}/>
         <Route path="/logout" />

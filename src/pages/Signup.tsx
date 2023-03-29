@@ -1,5 +1,6 @@
 import { useState } from "react"
 import {Form} from "react-router-dom"
+import Header from "../components/Header"
 
 interface UserForm {
     name: string,
@@ -17,7 +18,9 @@ export default function Signup() {
         confirmPassword: ""
     })
 
-    return <div className="formArea">
+    return <>
+        <Header />
+        <div className="formArea">    
         <Form action="/signup" method="post" className="userForm">
         <h3>Create New User</h3>
 
@@ -37,4 +40,5 @@ export default function Signup() {
         {formData.name && formData.confirmPassword && formData.password && formData.username && formData.password === formData.confirmPassword ?  <button className="ready" >Create User</button> :  <button className="disabled" disabled >Create User</button> }
         </Form>
     </div>
+    </>
 }

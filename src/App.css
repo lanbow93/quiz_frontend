@@ -10,7 +10,10 @@ header {
  color: rgb(223, 223, 223);
  text-align: center;
  margin-bottom: 1rem;
- 
+}
+h1 a{
+  text-decoration: none;
+  color: inherit;
 }
 .underline {
   padding-bottom: .5rem;
@@ -44,6 +47,30 @@ header {
 .navSelection button:hover{
   background-color: white;
   color: black;
+}
+
+/* Landing Page */
+.landing{
+  text-align: center;
+  padding: 1rem;
+  font-size: .75rem;
+}
+
+.landing h2 {
+  margin-bottom: 2rem;
+  margin-top: 20%;
+}
+.landing button {
+  padding: 1rem;
+  border-radius: 3rem;
+  color: white;
+  font-weight: bold;
+  background-color: purple;
+  border:  10px inset #AF8FE9;
+}
+.landing button:hover {
+  background-color:blueviolet;
+  border:  10px outset #AF8FE9;
 }
 
 /* Sign Up Page */
