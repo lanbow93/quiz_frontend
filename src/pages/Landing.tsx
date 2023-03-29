@@ -4,7 +4,7 @@ export default function Landing() {
     return <>
         <Header />
         <div className="landing">
-            <h2>Welcome to Quiz Wizard - the ultimate destination for testing knowledge and gathering survey results!</h2>
+            <h2>Welcome to Quiz Wizard - The ultimate destination for testing knowledge and gathering survey results!</h2>
             <Link to="/signup"><button>Get Started!</button></Link>
         </div>
     </>

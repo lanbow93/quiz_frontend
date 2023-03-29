@@ -3,9 +3,10 @@ import App from "../App";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import { loginAction, signupAction } from "./actions";
-import UserQuizIndex from "../pages/UserQuizIndex";
+import UserQuizIndex from "../pages/Dashboard";
 import { quizIndexLoader } from "./loaders";
 import Landing from "../pages/Landing";
+import Quizzes from "../pages/Quizzes";
 
 const router = createBrowserRouter(createRoutesFromElements(
     
@@ -14,6 +15,8 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/login" element={<Login/>} action={loginAction} />
         <Route path="/signup" element={<Signup/>} action={signupAction}/>
         <Route path="/logout" />
+        <Route path="/publicquizzes" element={<Quizzes headerProp="public" />} />
+        <Route path="/userquizzes" element={<Quizzes headerProp="user" />} />
         <Route path="/dashboard" >
             <Route path="" element={<UserQuizIndex />} loader={quizIndexLoader}/>
             <Route path="/dashboard/create" element={<h1>Create</h1>} />
