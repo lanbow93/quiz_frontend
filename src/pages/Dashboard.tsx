@@ -1,19 +1,22 @@
 import { Fetcher, LoaderFunction, useLoaderData } from "react-router-dom"
 import AuthHeader from "../components/AuthHeader"
 import { Quizzes } from "../customInterfaces"
+import DashboardQuizCard from "../components/QuizCard"
 
 export default function Dashboard() {
     const quizArrays = useLoaderData() as Quizzes
     console.log(quizArrays)
     return <>
     <AuthHeader />
-        <div>
+        <div className="dashboard">
             <h1>My Quizzes</h1>
-            <ul>
+
+            <div className="quizCardArea">
                 {quizArrays.map((quiz => {
-                    return <li >{quiz.title}</li>
+                    return <DashboardQuizCard {...quiz} key={quiz._id} />
                 }))}
-            </ul>
+            </div>
+            
         </div>
     </>
 }
