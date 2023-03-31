@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, useState } from "react"
+import {  useState } from "react"
 import { IQuestionInputProps } from "../customInterfaces"
 
 
@@ -9,12 +9,15 @@ export default function QuestionInput(props: IQuestionInputProps ){
 
     function handleChange(newValue: string , index: number) {
         const newDataArray: Array<string> = dataArray
-        console.log(newDataArray)
         newDataArray[index] = newValue
         setDataArray([...newDataArray])
+
+        const newQuestionArray: Array<Array<string>> = props.questionData
+        newQuestionArray[props.index] = dataArray
+        props.setQuestionFunction([...newQuestionArray])
+        
     }
 
-    console.log({dataArray})
     return <>
         <label htmlFor="question" className="emphasis">Question: {props.index + 1}</label>
         <input type="text" name={`question:${props.index}`} value={dataArray[0]} onChange={(event) => handleChange(event.target.value, 0)} />

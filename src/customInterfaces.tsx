@@ -21,5 +21,6 @@ export type Quizzes = [IQuizMongo]
 export interface IQuestionInputProps {
     questionArray: Array<string>,
     index: number,
+    questionData: Array<Array<string>>,
     setQuestionFunction: Function
 }

@@ -49,5 +49,33 @@ export const loginAction = async ({request}: any) => {
     }
 
     return redirect("/dashboard")
+    
 }
 
+
+export const createQuiz = async ({request}: any) => {
+    const formData = await request.formData();
+    const isPublicCheck = formData.get("isPublic") ? true : false; 
+
+    const quiz = {
+        title: formData.get("title"),
+        isPublic: isPublicCheck,
+        password: formData.get("password"),
+        questions: JSON.parse(formData.get("questions")),
+    }
+    const response = await fetch(url+ "/quiz", {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(quiz)
+    } )
+
+    if (response.status === 400) {
+        alert("Failed Creation")
+        return redirect("/dashboard/create")
+    }
+
+    return redirect("/dashboard")
+}

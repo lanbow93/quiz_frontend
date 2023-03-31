@@ -20,7 +20,7 @@ export default function QuizCreate(){
     return <>
     <AuthHeader />
     <div className="formArea">    
-        <Form action="/signup" method="post" className="userForm">
+        <Form action="/dashboard/new" method="post" className="userForm">
         <h3>Create New Quiz</h3>
 
         <label htmlFor="title" >Title:</label>
@@ -33,13 +33,15 @@ export default function QuizCreate(){
 
         <label htmlFor="isPublic" >Public:<input type="checkbox" name="isPublic" /></label>
         
+
+        <input type="hidden" name="questions" value={JSON.stringify(questionData)} />
         <h4>Question Section</h4>
 
-        {questionData.map((question, index) => <QuestionInput questionArray={question} index={index} setQuestionFunction={setQuestionData} key={`inputQuestionIndex:${index}`} /> )}
+        {questionData.map((question, index) => <QuestionInput questionArray={question} index={index} questionData={questionData} setQuestionFunction={setQuestionData} key={`inputQuestionIndex:${index}`} /> )}
         <p className="simulatedButton" onClick={addQuestion}>New Question</p>
         
         
-        {formData.title && formData.confirmPassword && formData.password && formData.password === formData.confirmPassword ?  <button className="ready" >Create Quiz</button> :  <button className="disabled" disabled >Create Quiz</button> }
+        {formData.title && formData.password === formData.confirmPassword ?  <button className="ready" >Create Quiz</button> :  <button className="disabled" disabled >Create Quiz</button> }
         </Form>
     </div>
     </>
