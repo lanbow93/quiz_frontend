@@ -17,3 +17,9 @@ export interface IQuizMongo extends IQuiz {
 }
 
 export type Quizzes = [IQuizMongo]
+
+export interface IQuestionInputProps {
+    questionArray: Array<string>,
+    index: number,
+    setQuestionFunction: Function
+}

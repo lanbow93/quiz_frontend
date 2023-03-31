@@ -4,9 +4,12 @@ import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import { loginAction, signupAction } from "./actions";
 import UserQuizIndex from "../pages/Dashboard";
-import { quizIndexLoader } from "./loaders";
+import { publicQuizzesLoader, quizIndexLoader } from "./loaders";
 import Landing from "../pages/Landing";
-import Quizzes from "../pages/Quizzes";
+import Quizzes from "../pages/QuizzesBoard";
+import QuizzesBoard from "../pages/QuizzesBoard";
+import AdminQuizShow from "../pages/AdminQuizShow";
+import QuizCreate from "../pages/QuizCreate";
 
 const router = createBrowserRouter(createRoutesFromElements(
     
@@ -15,13 +18,13 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/login" element={<Login/>} action={loginAction} />
         <Route path="/signup" element={<Signup/>} action={signupAction}/>
         <Route path="/logout" />
-        <Route path="/publicquizzes" element={<Quizzes headerProp="public" />} />
-        <Route path="/userquizzes" element={<Quizzes headerProp="user" />} />
+        <Route path="/publicquizzes" element={<QuizzesBoard headerProp="public" />} loader={publicQuizzesLoader} />
+        <Route path="/userquizzes" element={<QuizzesBoard headerProp="user" />}  loader={publicQuizzesLoader}/>
         <Route path="/dashboard" >
             <Route path="" element={<UserQuizIndex />} loader={quizIndexLoader}/>
-            <Route path="/dashboard/create" element={<h1>Create</h1>} />
+            <Route path="/dashboard/create" element={<QuizCreate />} />
             <Route path="/dashboard/:id">
-                <Route path="" element={<h1>Show</h1>} />
+                <Route path="" element={<AdminQuizShow />} />
                 <Route path="/dashboard/:id/update" element={<h1>Update</h1>} />
                 <Route path="/dashboard/:id/delete" element={<h1>Delete</h1>} />
             </Route>

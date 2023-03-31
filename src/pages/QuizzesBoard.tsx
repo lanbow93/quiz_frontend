@@ -1,10 +1,13 @@
+import { useLoaderData } from "react-router-dom"
 import AuthHeader from "../components/AuthHeader"
 import Header from "../components/Header"
-import { QuizProp } from "../customInterfaces"
+import { QuizProp, Quizzes } from "../customInterfaces"
 
 
 
-export default function Quizzes(props: QuizProp) {
+export default function QuizzesBoard(props: QuizProp) {
+    const quizList = useLoaderData() as Quizzes
+    console.log(quizList)
     return <>
         {props.headerProp === "public" ? <Header /> : <AuthHeader/>}
         <div className="quizzesPage">

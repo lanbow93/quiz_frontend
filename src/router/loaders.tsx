@@ -10,3 +10,14 @@ export const quizIndexLoader = async () => {
         return error
     }
 }
+
+export const publicQuizzesLoader = async () => {
+    try {
+        return await fetch(url + "/public", {
+            method: "GET",
+            credentials: "include"
+        })
+    } catch (error) {
+        return error
+    }
+}
