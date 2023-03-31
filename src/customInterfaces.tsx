@@ -16,6 +16,10 @@ export interface IQuizMongo extends IQuiz {
     _id: string
 }
 
+export interface IQuizMongoProps extends IQuizMongo {
+    link: "dashboard" | "quizzes"
+}
+
 export type Quizzes = [IQuizMongo]
 
 export interface IQuestionInputProps {
@@ -23,4 +27,13 @@ export interface IQuestionInputProps {
     index: number,
     questionData: Array<Array<string>>,
     setQuestionFunction: Function
+}
+
+export type quizEventType = "previous" | "next"
+
+export interface IQuestionProps {
+    question: Array<string>,
+    answerSelection: Array<string>,
+    setAnswerSelection: Function,
+    currentIndex: number
 }

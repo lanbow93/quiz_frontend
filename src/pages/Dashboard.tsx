@@ -15,7 +15,7 @@ export default function Dashboard() {
             </div>
             <div className="quizCardArea">
                 {quizArrays.map((quiz => {
-                    return <DashboardQuizCard {...quiz} key={quiz._id} />
+                    return <DashboardQuizCard {...quiz} link="dashboard" key={quiz._id} />
                 }))}
             </div>
             
