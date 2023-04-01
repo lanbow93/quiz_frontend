@@ -75,11 +75,16 @@ header span {
   padding: 1rem;
   font-size: .75rem;
 }
+.logo img{
+  object-fit: contain;
+  width: 70%;
+  max-width: 30rem;
+}
 
 .landing h2 {
   
   margin-bottom: 2rem;
-  margin-top: 25%;
+  margin-top: 2rem;
   font-family: 'Merienda', cursive;
 }
 
