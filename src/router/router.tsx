@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import App from "../App";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
-import { createQuiz, loginAction, signupAction } from "./actions";
+import { createQuiz, loginAction, signupAction, updateQuiz } from "./actions";
 import UserQuizIndex from "../pages/Dashboard";
 import { publicQuizzesLoader, quizIndexLoader } from "./loaders";
 import Landing from "../pages/Landing";
@@ -10,6 +10,7 @@ import Quizzes from "../pages/QuizzesBoard";
 import QuizzesBoard from "../pages/QuizzesBoard";
 import AdminQuizShow from "../pages/AdminQuizShow";
 import QuizCreate from "../pages/QuizCreate";
+import QuizEdit from "../pages/QuizEdit";
 
 const router = createBrowserRouter(createRoutesFromElements(
     
@@ -26,8 +27,11 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path="/dashboard/new" action={createQuiz} />
             <Route path="/dashboard/:id">
                 <Route path="" element={<AdminQuizShow />} />
-                <Route path="/dashboard/:id/update" element={<h1>Update</h1>} />
-                <Route path="/dashboard/:id/delete" element={<h1>Delete</h1>} />
+                <Route path="/dashboard/:id/submissions" element={<h1>Submissions</h1>} />
+                <Route path="/dashboard/:id/edit" element={<QuizEdit />} />
+                <Route path="/dashboard/:id/update" action={updateQuiz} />
+                <Route path="/dashboard/:id/delete"  />
+
             </Route>
         </Route>
     </Route>

@@ -1,4 +1,4 @@
-import { Form, Location, useLocation } from "react-router-dom"
+import { Form, Location, useLocation, Link } from "react-router-dom"
 import AuthHeader from "../components/AuthHeader"
 import QuestionCard from "../components/QuestionCard"
 import { useState } from "react"
@@ -32,6 +32,13 @@ export default function AdminQuizShow() {
     return<>
     <AuthHeader />
     <div className="questionArea">
+        <div className="quizControl">
+            <Form action={`/dashboard/${location.state._id}/delete`}><button>Delete</button></Form>
+
+            <Link to={`/dashboard/${location.state._id}/submissions`} state={location.state}><button>Submissions</button></Link>
+
+            <Link to={`/dashboard/${location.state._id}/edit`} state={location.state}><button>Edit</button></Link>
+        </div>
         <h3>(Preview)</h3>
         <h1>{location.state.title}</h1>
 
@@ -39,12 +46,12 @@ export default function AdminQuizShow() {
         <QuestionCard question={questions[currentQuestionIndex]} answerSelection={answerSelection} setAnswerSelection={HandleSelection} currentIndex={currentQuestionIndex} />
 
         <div className="quizControl">    
-            <Form>
-                <button>Submit</button>
-            </Form>
             <button onClick={() => handleClick("previous")}>Previous</button>
             <button onClick={() => handleClick("next")}>Next</button>
         </div>
+        <Form className="submitFormButton">
+                <button disabled>Submit</button>
+        </Form>
         
     </div>
     </>

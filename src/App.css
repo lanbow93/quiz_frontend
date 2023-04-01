@@ -262,11 +262,54 @@ input[type="checkbox"] {
 .quizControl{
   display: flex;
   justify-content: space-around;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .selected{
   background-color: blue;
   color: white;
+}
+
+.quizControl button {
+  padding: .75rem;
+  border-radius: 3rem;
+  color: white;
+  font-weight: bold;
+  background-color: purple;
+  border:  6px inset #AF8FE9;
+  transition: 300ms;
+  margin-top: 1rem;
+  width: 10rem;
+}
+.quizControl button:hover {
+  padding: 1rem;
+  background-color:blueviolet;
+  border:  10px outset #AF8FE9;
+}
+
+.quizControl form button:hover {
+  padding: 1rem;
+  background-color:red;
+  border:  10px outset #AF8FE9;
+}
+
+.submitFormButton {
+  display: flex;
+  justify-content: center;
+}
+.submitFormButton button{
+  justify-content: center;
+  padding: .75rem;
+  border-radius: 3rem;
+  color: white;
+  font-weight: bold;
+  background-color: purple;
+  border:  6px inset #AF8FE9;
+  transition: 300ms;
+  margin-top: .5rem;
+  width: 80%;
+  max-width: 30rem;
 }
 
 @media (min-width: 50rem) {
@@ -279,7 +322,7 @@ input[type="checkbox"] {
   .navSelection {
     position: absolute;
     right:0;
-
+    
   }
 
   /* Landing page */
