@@ -1,5 +1,5 @@
 import url from "./url"
-import { redirect } from "react-router-dom"
+import { Params, redirect } from "react-router-dom"
 
 
 export const signupAction = async({request }: any) => {
@@ -105,4 +105,20 @@ export const updateQuiz = async ({request, params}: any) => {
     }
 
     return redirect(`/dashboard`)
+}
+
+export const deleteAction = async ({request, params}: any) => {
+    const id = params.id
+
+    const response = await fetch(url+ "/quiz/" + id, {
+        method: "delete",
+        credentials: "include"
+    } )
+
+    if (response.status === 400) {
+        alert("Failed To Delete")
+        return redirect("/dashboard")
+    }
+
+    return redirect("/dashboard")
 }

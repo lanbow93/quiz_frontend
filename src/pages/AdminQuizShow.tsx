@@ -33,7 +33,7 @@ export default function AdminQuizShow() {
     <AuthHeader />
     <div className="questionArea">
         <div className="quizControl">
-            <Form action={`/dashboard/${location.state._id}/delete`}><button>Delete</button></Form>
+            <Form action={`/dashboard/${location.state._id}/delete`} method="post"><button>Delete</button></Form>
 
             <Link to={`/dashboard/${location.state._id}/submissions`} state={location.state}><button>Submissions</button></Link>
 

@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import App from "../App";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
-import { createQuiz, loginAction, signupAction, updateQuiz } from "./actions";
+import { createQuiz, deleteAction, loginAction, signupAction, updateQuiz } from "./actions";
 import UserQuizIndex from "../pages/Dashboard";
 import { publicQuizzesLoader, quizIndexLoader } from "./loaders";
 import Landing from "../pages/Landing";
@@ -30,7 +30,7 @@ const router = createBrowserRouter(createRoutesFromElements(
                 <Route path="/dashboard/:id/submissions" element={<h1>Submissions</h1>} />
                 <Route path="/dashboard/:id/edit" element={<QuizEdit />} />
                 <Route path="/dashboard/:id/update" action={updateQuiz} />
-                <Route path="/dashboard/:id/delete"  />
+                <Route path="/dashboard/:id/delete" action={deleteAction} />
 
             </Route>
         </Route>
