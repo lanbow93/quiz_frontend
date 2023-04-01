@@ -33,3 +33,14 @@ export const quizLoader = async ({params}: any) => {
     }
 }
 
+export const submissionLoader = async ({params}: any) => {
+    try {
+        return await fetch(url + "/user/index/" + params.id, {
+            method: "GET",
+            credentials: "include"
+        })
+    } catch (error) {
+        return error
+    }
+}
+

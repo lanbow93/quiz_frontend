@@ -10,6 +10,18 @@ export interface IQuiz {
     questions: [[string]]
 };
 
+export interface ISubmission {
+    _id: string,
+    quizID: string,
+    grade: number,
+    name: string,
+    questions: Array<Array<string>>,
+    createdAt: string,
+    updatedAt: string
+}
+
+export type ISubmissions = [ISubmission]
+
 export interface IQuizMongo extends IQuiz {
     createdAt: string,
     updatedAt: string,

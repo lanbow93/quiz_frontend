@@ -43,7 +43,7 @@ export default function Quiz(props: QuizProp) {
             }
         }
         setGrade(Math.round((tempValue / questions.length) * 100))
-        console.log(grade)
+        
     }
 
     return <>

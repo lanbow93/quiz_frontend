@@ -7,6 +7,6 @@ export default function Results(props:QuizProp){
     const {id} = useParams()
     return <>
         {props.headerProp === "user" ? <AuthHeader /> : <Header />}
-        <h1>You Scored A {id}</h1>
+        <h1 className="results">You Scored A {id}</h1>
     </>
 }

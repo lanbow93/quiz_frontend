@@ -334,6 +334,11 @@ input[type="checkbox"] {
   text-align: center;
 }
 
+.results{
+  text-align: center;
+  font-family: 'Merienda', cursive;
+}
+
 @media (min-width: 50rem) {
   /* Header Section */
   header {

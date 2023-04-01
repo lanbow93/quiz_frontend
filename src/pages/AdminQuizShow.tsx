@@ -42,7 +42,7 @@ export default function AdminQuizShow() {
         <h1>{location.state.title}</h1>
 
 
-        <QuestionCard question={questions[currentQuestionIndex]} answerSelection={answerSelection} setAnswerSelection={HandleSelection} currentIndex={currentQuestionIndex} doTheThing={()=>{console.log("Typescript can be annoying")}} />
+        <QuestionCard question={questions[currentQuestionIndex]} answerSelection={answerSelection} setAnswerSelection={HandleSelection} currentIndex={currentQuestionIndex} doTheThing={()=>{}} />
 
         <div className="quizControl">    
             <button onClick={() => handleClick("previous")}>Previous</button>
