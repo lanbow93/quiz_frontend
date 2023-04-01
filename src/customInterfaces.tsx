@@ -17,7 +17,7 @@ export interface IQuizMongo extends IQuiz {
 }
 
 export interface IQuizMongoProps extends IQuizMongo {
-    link: "dashboard" | "quizzes"
+    link: "userquizzes" | "publicquizzes" | "dashboard"
 }
 
 export type Quizzes = [IQuizMongo]

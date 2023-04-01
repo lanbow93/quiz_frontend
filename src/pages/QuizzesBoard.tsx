@@ -9,13 +9,14 @@ import QuizCard from "../components/QuizCard"
 export default function QuizzesBoard(props: QuizProp) {
     const quizList = useLoaderData() as Quizzes
     console.log(quizList)
+    const isUser: boolean = props.headerProp === "user"
     return <>
-        {props.headerProp === "public" ? <Header /> : <AuthHeader/>}
+        {isUser ? <AuthHeader/> : <Header />}
         <div className="dashboard">
             <h1>Quizzes</h1>
             <div className="quizCardArea">
                 {quizList.map((quiz => {
-                    return <QuizCard {...quiz} link="quizzes" key={quiz._id} />
+                    return <QuizCard {...quiz} link={isUser ? "userquizzes" : "publicquizzes"} key={quiz._id} />
                 }))}
             </div>
             

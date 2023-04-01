@@ -319,6 +319,11 @@ input[type="checkbox"] {
   max-width: 30rem;
 }
 
+/* Verification Page */
+.verificationArea p {
+  text-align: center;
+}
+
 @media (min-width: 50rem) {
   /* Header Section */
   header {

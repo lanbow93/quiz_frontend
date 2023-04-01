@@ -52,6 +52,54 @@ export const loginAction = async ({request}: any) => {
     
 }
 
+export const verifyUserAction = async ({request}: any) => {
+
+    const formData = await request.formData()
+    const password = formData.get("password")
+    const id = formData.get("id")
+
+    const response = await fetch(url+ "/auth/" + id, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({password})
+    } )
+
+    if (response.status === 400) {
+        alert("Failed Verification")
+        return redirect(`/userquizzes`)
+    }
+
+    return redirect(`/userquizzes/${id}`)
+    
+}
+
+export const verifyPublicAction = async ({request}: any) => {
+
+    const formData = await request.formData()
+    const password = formData.get("password")
+    const id = formData.get("id")
+
+    const response = await fetch(url+ "/auth/" + id, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({password})
+    } )
+
+    if (response.status === 400) {
+        alert("Failed Verification")
+        return redirect(`/publicquizzes`)
+    }
+
+    return redirect(`/publicquizzes/${id}`)
+    
+}
+
 export const logoutAction = async () => {
     const response = await fetch(url+ "/auth/logout", {
         method: "post",
