@@ -52,6 +52,24 @@ export const loginAction = async ({request}: any) => {
     
 }
 
+export const logoutAction = async () => {
+    const response = await fetch(url+ "/auth/logout", {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include"
+    } )
+
+    if (response.status === 400) {
+        alert("Failed To Logout")
+        return redirect("/dashboard")
+    }
+
+    return redirect("/")
+    
+}
+
 
 export const createQuiz = async ({request}: any) => {
     const formData = await request.formData();

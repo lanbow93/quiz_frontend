@@ -5,7 +5,7 @@ export default function AuthHeader() {
             <div className="navSelection">
             <Link to="/userquizzes"><button>Quizzes</button></Link>
             <Link to="/dashboard"><button>Dashboard</button></Link>
-            <Form><button>Logout</button></Form>
+            <Form action="/logout" method="post"><button>Logout</button></Form>
             </div>
     </header>
 }
