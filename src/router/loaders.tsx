@@ -21,3 +21,15 @@ export const publicQuizzesLoader = async () => {
         return error
     }
 }
+
+export const quizLoader = async ({params}: any) => {
+    try {
+        return await fetch(url + "/public/access/" + params.id, {
+            method: "GET",
+            credentials: "include"
+        })
+    } catch (error) {
+        return error
+    }
+}
+

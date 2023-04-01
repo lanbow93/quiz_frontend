@@ -69,7 +69,7 @@ export const verifyUserAction = async ({request}: any) => {
 
     if (response.status === 400) {
         alert("Failed Verification")
-        return redirect(`/userquizzes`)
+        return redirect(`/userquizzes`, )
     }
 
     return redirect(`/userquizzes/${id}`)

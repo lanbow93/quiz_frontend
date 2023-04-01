@@ -4,7 +4,7 @@ import Header from "../components/Header"
 
 export default function Verification(){
     const location: Location = useLocation()
-    console.log(location.state)
+
 
     const correctLink: "userquizzes" | "publicquizzes" = location.state[1]
     return <>

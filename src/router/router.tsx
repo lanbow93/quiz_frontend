@@ -4,13 +4,14 @@ import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import { createQuiz, deleteAction, loginAction, logoutAction, signupAction, updateQuiz, verifyPublicAction, verifyUserAction } from "./actions";
 import UserQuizIndex from "../pages/Dashboard";
-import { publicQuizzesLoader, quizIndexLoader } from "./loaders";
+import { publicQuizzesLoader, quizIndexLoader, quizLoader } from "./loaders";
 import Landing from "../pages/Landing";
 import QuizzesBoard from "../pages/QuizzesBoard";
 import AdminQuizShow from "../pages/AdminQuizShow";
 import QuizCreate from "../pages/QuizCreate";
 import QuizEdit from "../pages/QuizEdit";
 import Verification from "../pages/Verification";
+import Quiz from "../pages/Quiz";
 
 const router = createBrowserRouter(createRoutesFromElements(
     
@@ -22,13 +23,12 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/publicquizzes" >
             <Route path="" element={<QuizzesBoard headerProp="public" />} loader={publicQuizzesLoader}  />
             <Route path="/publicquizzes/verify" element={< Verification />} action={verifyPublicAction}/>
-            <Route path="/publicquizzes/access" />
-            <Route path="/publicquizzes/:id"  />
+            <Route path="/publicquizzes/:id" element={< Quiz headerProp="public" />} loader={quizLoader}/>
         </Route>
         <Route path="/userquizzes">
             <Route path="" element={<QuizzesBoard headerProp="user" />}  loader={publicQuizzesLoader}  />
             <Route path="/userquizzes/verify" element={< Verification />} action={verifyUserAction} />
-            <Route path="/userquizzes/:id"  />
+            <Route path="/userquizzes/:id" element={< Quiz headerProp="user" />} loader={quizLoader} />
         </Route>
         <Route path="/dashboard" >
             <Route path="" element={<UserQuizIndex />} loader={quizIndexLoader}/>

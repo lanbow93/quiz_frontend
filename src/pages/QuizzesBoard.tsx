@@ -8,7 +8,7 @@ import QuizCard from "../components/QuizCard"
 
 export default function QuizzesBoard(props: QuizProp) {
     const quizList = useLoaderData() as Quizzes
-    console.log(quizList)
+ 
     const isUser: boolean = props.headerProp === "user"
     return <>
         {isUser ? <AuthHeader/> : <Header />}

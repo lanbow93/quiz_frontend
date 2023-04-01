@@ -6,12 +6,12 @@ import { quizEventType } from "../customInterfaces"
 
 export default function AdminQuizShow() {
     const location: Location = useLocation()
-    console.log(location.state)
+
 
     const {questions} = location.state
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-    console.log(questions)
+  
 
     function handleClick(eventType: quizEventType){
         if(eventType === "next") {
@@ -26,7 +26,6 @@ export default function AdminQuizShow() {
             const newAnswerSelection: Array<string> = [...answerSelection];
             newAnswerSelection[currentQuestionIndex] = selectedAnswer;
             setAnswerSelection([...newAnswerSelection])
-            console.log({answerSelection})
     }
 
     return<>
