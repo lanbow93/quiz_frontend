@@ -188,3 +188,31 @@ export const deleteAction = async ({request, params}: any) => {
 
     return redirect("/dashboard")
 }
+
+export const submitUserQuiz = async ({request}: any) => {
+    const formData = await request.formData(); 
+    const answers = formData.get("answers")
+    const questions = JSON.parse(formData.get("questions"))
+    const newQuestion = [].concat(...questions,...answers)
+    const submission = {
+        quizID: formData.get("quizID"),
+        grade: formData.get("grade"),
+        name: formData.get("name"),
+        questions: newQuestion,
+    }
+    const response = await fetch(url+ "/user", {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(submission)
+    } )
+
+    if (response.status === 400) {
+        alert("Failed Submission")
+        return redirect("/userquizzes")
+    }
+
+    return redirect(`/userquizzes/results/${formData.get("grade")}`)
+}

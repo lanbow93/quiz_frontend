@@ -1,6 +1,6 @@
-import { IQuestionProps } from "../customInterfaces"
+import {  IQuestionPropsSolo } from "../customInterfaces"
 
-export default function QuestionCard(props: IQuestionProps){
+export default function QuestionCard(props: IQuestionPropsSolo){
 
     const answerChoices = [...props.question]
     answerChoices.shift()
@@ -12,6 +12,7 @@ export default function QuestionCard(props: IQuestionProps){
         {props.answerSelection[props.currentIndex] === answers[1] ? <p className="answer selected" onClick={() => props.setAnswerSelection(answers[1])}><span className="bold">B:</span> {answers[1]}</p> : <p className="answer" onClick={() => props.setAnswerSelection(answers[1])}><span className="bold">B:</span> {answers[1]}</p>}
         {props.answerSelection[props.currentIndex] === answers[2] ? <p className="answer selected" onClick={() => props.setAnswerSelection(answers[2])}><span className="bold">C:</span> {answers[2]}</p> : <p className="answer" onClick={() => props.setAnswerSelection(answers[2])}><span className="bold">C:</span> {answers[2]}</p>}
         {props.answerSelection[props.currentIndex] === answers[3] ? <p className="answer selected" onClick={() => props.setAnswerSelection(answers[3])}><span className="bold">D:</span> {answers[3]}</p> : <p className="answer" onClick={() => props.setAnswerSelection(answers[3])}><span className="bold">D:</span> {answers[3]}</p>}
+        {props.doTheThing()}
     </div>
 
 }

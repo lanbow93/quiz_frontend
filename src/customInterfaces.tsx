@@ -35,5 +35,12 @@ export interface IQuestionProps {
     question: Array<string>,
     answerSelection: Array<string>,
     setAnswerSelection: Function,
-    currentIndex: number
+    currentIndex: number,
+}
+export interface IQuestionPropsSolo {
+    question: Array<string>,
+    answerSelection: Array<string>,
+    setAnswerSelection: Function,
+    currentIndex: number,
+    doTheThing: Function
 }

@@ -319,6 +319,16 @@ input[type="checkbox"] {
   max-width: 30rem;
 }
 
+.nameField{
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.nameField label {
+  margin-right: .5rem;
+}
+
 /* Verification Page */
 .verificationArea p {
   text-align: center;

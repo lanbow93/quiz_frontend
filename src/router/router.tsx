@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import App from "../App";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
-import { createQuiz, deleteAction, loginAction, logoutAction, signupAction, updateQuiz, verifyPublicAction, verifyUserAction } from "./actions";
+import { createQuiz, deleteAction, loginAction, logoutAction, signupAction, submitUserQuiz, updateQuiz, verifyPublicAction, verifyUserAction } from "./actions";
 import UserQuizIndex from "../pages/Dashboard";
 import { publicQuizzesLoader, quizIndexLoader, quizLoader } from "./loaders";
 import Landing from "../pages/Landing";
@@ -12,6 +12,7 @@ import QuizCreate from "../pages/QuizCreate";
 import QuizEdit from "../pages/QuizEdit";
 import Verification from "../pages/Verification";
 import Quiz from "../pages/Quiz";
+import Results from "../pages/Results";
 
 const router = createBrowserRouter(createRoutesFromElements(
     
@@ -20,15 +21,23 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/login" element={<Login/>} action={loginAction} />
         <Route path="/signup" element={<Signup/>} action={signupAction}/>
         <Route path="/logout" action={logoutAction} />
+        
         <Route path="/publicquizzes" >
             <Route path="" element={<QuizzesBoard headerProp="public" />} loader={publicQuizzesLoader}  />
             <Route path="/publicquizzes/verify" element={< Verification />} action={verifyPublicAction}/>
+            <Route path="/publicquizzes/submit" action={submitUserQuiz}/>
+            <Route path="/publicquizzes/results/:id" element={<Results headerProp="public" />}  />
             <Route path="/publicquizzes/:id" element={< Quiz headerProp="public" />} loader={quizLoader}/>
+            
+        
         </Route>
         <Route path="/userquizzes">
             <Route path="" element={<QuizzesBoard headerProp="user" />}  loader={publicQuizzesLoader}  />
             <Route path="/userquizzes/verify" element={< Verification />} action={verifyUserAction} />
+            <Route path="/userquizzes/submit" action={submitUserQuiz}/>
+            <Route path="/publicquizzes/results/:id" element={<Results headerProp="user" />}  />
             <Route path="/userquizzes/:id" element={< Quiz headerProp="user" />} loader={quizLoader} />
+            
         </Route>
         <Route path="/dashboard" >
             <Route path="" element={<UserQuizIndex />} loader={quizIndexLoader}/>
